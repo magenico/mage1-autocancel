@@ -28,10 +28,10 @@ class Magenico_AutoCancel_Model_Adminhtml_System_Config_IntervalTypes extends Ma
     public function toOptionArray()
     {
         return array(
-            array('value' => 'MONTH', 'label' => Mage::helper('magenico_flexpurchaseorder')->__('Month')),
-            array('value' => 'DAY', 'label' => Mage::helper('magenico_flexpurchaseorder')->__('Day')),
-            array('value' => 'HOUR', 'label' => Mage::helper('magenico_flexpurchaseorder')->__('Hour')),
-            array('value' => 'MINUTE', 'label' => Mage::helper('magenico_flexpurchaseorder')->__('Minute')),
+            array('value' => 'MONTH', 'label' => Mage::helper('magenico_autocancel')->__('Month')),
+            array('value' => 'DAY', 'label' => Mage::helper('magenico_autocancel')->__('Day')),
+            array('value' => 'HOUR', 'label' => Mage::helper('magenico_autocancel')->__('Hour')),
+            array('value' => 'MINUTE', 'label' => Mage::helper('magenico_autocancel')->__('Minute')),
         );
     }
 
