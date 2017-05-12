@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Magenico DOO Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magenico DOO Module License
+ * that is bundled with this package in the file license.pdf.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magenico.com/license
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@magenico.com so we can send you a copy immediately.
+ *
+ * @category   Magenico
+ * @package    Magenico_AutoCancel
+ * @copyright  Copyright (c) 2017 Magenico DOO
+ * @license    http://www.magenico.com/license
+ */
+-->
+
+<config>
+    <modules>
+        <Magenico_AutoCancel>
+            <version>0.1.0</version>
+        </Magenico_AutoCancel>
+    </modules>
+    <global>
+        <models>
+            <magenico_autocancel>
+                <class>Magenico_AutoCancel_Model</class>
+            </magenico_autocancel>
+        </models>
+        <blocks>
+            <magenico_autocancel>
+                <class>Magenico_AutoCancel_Block</class>
+            </magenico_autocancel>
+        </blocks>
+        <resources>
+            <magenico_autocancel_setup>
+                <setup>
+                    <module>Magenico_AutoCancel</module>
+                </setup>
+            </magenico_autocancel_setup>
+        </resources>  
+        <helpers>
+            <magenico_autocancel>
+                <class>Magenico_AutoCancel_Helper</class>
+            </magenico_autocancel>
+        </helpers>
+    </global>
+    <crontab>
+        <jobs>
+            <autocancel_orders>
+                <schedule>
+                    <cron_expr>*/5 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>magenico_autocancel/observer::cancelPendingOrders</model>
+                </run>
+            </autocancel_orders>
+        </jobs>
+    </crontab>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <magenico_autocancel>
+                                            <title>AutoCancel</title>
+                                        </magenico_autocancel>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <magenico_autocancel>
+            <general>
+                <enabled>0</enabled>
+                <debug_enabled>1</debug_enabled>
+            </general>
+        </magenico_autocancel>
+    </default>
+</config>

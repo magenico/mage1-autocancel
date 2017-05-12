@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magenico_AutoCancel>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Magenico_AutoCancel>
+    </modules>
+</config>

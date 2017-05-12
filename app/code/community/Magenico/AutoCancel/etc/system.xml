@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Magenico DOO Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magenico DOO Module License
+ * that is bundled with this package in the file license.pdf.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magenico.com/license
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@magenico.com so we can send you a copy immediately.
+ *
+ * @category   Magenico
+ * @package    Magenico_AutoCancel
+ * @copyright  Copyright (c) 2017 Magenico DOO
+ * @license    http://www.magenico.com/license
+ */
+-->
+<config>
+    <tabs>
+        <magenico>
+            <label>Magenico Extensions</label>
+            <sort_order>0</sort_order>
+        </magenico>
+    </tabs>
+    <sections>
+        <magenico_autocancel translate="label">
+            <label>Magenico AutoCancel</label>
+            <tab>magenico</tab>
+            <frontend_type>text</frontend_type>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <sort_order>1001</sort_order>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </enabled>
+                        <debug_enabled translate="label">
+                            <label>Logging Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </debug_enabled>
+                    </fields>
+                </general>
+                <global translate="label">
+                    <label>Global Order Rule</label>
+                    <sort_order>110</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <start_date translate="label">
+                            <label>Starting from date</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Valid date (and/or time) required</comment>
+                            <validate>validate-date required</validate>
+                            <sort_order>99</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </start_date>
+                        <statuses translate="label">
+                            <label>Order statuses to cancel</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>magenico_autocancel/adminhtml_system_config_statusList</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </statuses>
+                        <interval_type translate="label">
+                            <label>Interval type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magenico_autocancel/adminhtml_system_config_intervalTypes</source_model>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </interval_type>
+                        <interval_amount translate="label">
+                            <label>Interval amount</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-not-negative-number required</validate>
+                            <comment>Use 0 to disable global rule</comment>
+                            <sort_order>102</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </interval_amount>
+                    </fields>
+                </global>
+                <payment_specific>
+                    <label>Payment Method Specific Rules</label>
+                    <sort_order>120</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <rules_data translate="label">
+                            <label>Payment method specific autocancel rules</label>
+                            <frontend_model>magenico_autocancel/adminhtml_system_config_paymentSpecificCancel</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <comment>Automatically cancels all orders in NEW order state for selected payment method after the time interval</comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </rules_data>
+                    </fields>
+                </payment_specific>
+            </groups>
+        </magenico_autocancel>
+    </sections>
+</config>
