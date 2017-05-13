@@ -28,7 +28,7 @@
     </tabs>
     <sections>
         <magenico_autocancel translate="label">
-            <label>Magenico AutoCancel</label>
+            <label>AutoCancel</label>
             <tab>magenico</tab>
             <frontend_type>text</frontend_type>
             <show_in_default>1</show_in_default>
